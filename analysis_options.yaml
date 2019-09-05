@@ -1,0 +1,32 @@
+include: package:pedantic/analysis_options.yaml
+
+analyzer:
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+
+linter:
+  rules:
+    - cancel_subscriptions
+    - hash_and_equals
+    - iterable_contains_unrelated_type
+    - list_remove_unrelated_type
+    - test_types_in_equals
+    - unrelated_type_equality_checks
+    - valid_regexps
+    - use_string_buffers
+    - unnecessary_this
+    - unnecessary_overrides
+    - unnecessary_brace_in_string_interps
+    - recursive_getters
+    - prefer_is_not_empty
+    - prefer_is_empty
+    - prefer_interpolation_to_compose_strings
+    - prefer_initializing_formals
+    - prefer_contains
+    - only_throw_errors
+    - empty_constructor_bodies
+    - empty_catches
+    - annotate_overrides
+    - empty_statements
+
