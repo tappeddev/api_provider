@@ -3,7 +3,7 @@
 ### Clean and boilerplate free network requests with only a few lines of code.
 
 ```dart
-	final request = Request(url: Path("https://someapi/user"), httpMethod: HttpMethod.GET);
+  final request = Request(url: Path("https://someapi/user"), httpMethod: HttpMethod.GET);
 
   final response = await apiProvider.request<User>(request: request);
   print("fetched user :${response.body.name}");
