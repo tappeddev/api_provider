@@ -78,7 +78,7 @@ class UserDecoder implements Serializable<Map, User> {
     email: input['email'] as String,
     name: input['name'] as String,
   );
-
+}
 ```
 
 
