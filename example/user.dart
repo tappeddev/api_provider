@@ -9,19 +9,20 @@ class User {
     @required this.email,
     @required this.name,
   });
+}
 
-  Map<String, dynamic> toMap() => <String, dynamic>{
-        'email': email,
-        'name': name,
+class UserEncoder implements Deserializable<Map, User> {
+  @override
+  Map to(User input) => <String, dynamic>{
+        'email': input.email,
+        'name': input.name,
       };
-
-  factory User.fromMap(Map map) => User(
-        email: map['email'] as String,
-        name: map['name'] as String,
-      );
 }
 
 class UserDecoder implements Serializable<Map, User> {
   @override
-  User from(Map input) => User.fromMap(input);
+  User from(Map input) => User(
+        email: input['email'] as String,
+        name: input['name'] as String,
+      );
 }
