@@ -58,7 +58,7 @@ final apiProvider = HttpClientApiProvider(
     container: SerializerContainer()
       ..insertEncoder(UserEncoder())
       ..insertDecoder(UserDecoder()),
-  );
+);
 
 // responsible for decoding a user
 // similar to a "toMap" method.
