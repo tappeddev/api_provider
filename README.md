@@ -120,10 +120,8 @@ class AuthInterceptor implements Interceptor {
           headers: {"Authorization": await getToken()},
         );
 
-				return handler(updatedRequest);
-	};
-  
-  ...
+	return handler(updatedRequest);
+  };
 }
 ```
 
@@ -146,8 +144,7 @@ class RefreshTokenInterceptor implements Interceptor {
         }
 
         return response;
-      };
-	...
+  };
 }
 ```
 
@@ -166,6 +163,7 @@ class RefreshTokenInterceptor implements Interceptor {
          MyInterceptor(),
          LoggingInterceptor(),
        ]),
+   )
    ```
 
    The given `Interceptors`'s wrap around the source call like an onion.  🤤
@@ -193,12 +191,12 @@ class RefreshTokenInterceptor implements Interceptor {
    Use `MockApiProvider` and configure it using the builder!
 
    ```dart
-   	final apiProvider = MockApiProvider((builder) {
+   final apiProvider = MockApiProvider((builder) {
        builder.onGet<User>(
          url: Path("https://someapi/user"),
          handler: (request) async => Response.success(body: mockedUser()),
        );
-     });
+   });
    ```
 
    If you want to test your `ApiProvider` with all of your custom `Interceptor`'s' we gotcha covered, because `MockApiProvider` supports  `Interceptor`'s   as well! 💪🏼 
