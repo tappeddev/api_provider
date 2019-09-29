@@ -11,11 +11,15 @@
 
 Build around [dart:http](https://pub.dev/packages/http).
 
+
+
 # 🔥 Features:
 
 - Typesafe on `Request` and `Response` objects
 - Powerful `Interceptors`
 - Testing / Mocking out of the box
+
+
 
 
 
@@ -28,6 +32,8 @@ api_provider:
     git:
       url: git://github.com/tikkrapp/api_provider.git
 ```
+
+
 
 
 
@@ -70,13 +76,15 @@ class UserDecoder implements Serializable<Map, User> {
 
 
 
+
+
 # ↔️ Interceptors
 
 Interceptors give you the ability to transform, change or listen to request or response calls.
 
 This could be something simply like adding an Authorization Header or something more complex like catching and handling a specific error from your api.
 
-1. ## Start by implementing `Interceptor`. 
+1. ### Start by implementing `Interceptor`. 
 
 ```dart
 class MyInterceptor implements Interceptor {
