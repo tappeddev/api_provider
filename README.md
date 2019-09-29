@@ -9,17 +9,19 @@
   print("fetched user :${response.body.name}");
 ```
 
+Build around [dart:http](https://pub.dev/packages/http).
+
 # 🔥 Features:
 
-- Typesafe on `Request` and `Response` objects.
+- Typesafe on `Request` and `Response` objects
 - Powerful `Interceptors`
-- Testing / Mocking out of the box!
+- Testing / Mocking out of the box
 
 
 
 # 🛠 Installing
 
-Add the following snippet into your `pubspec.yaml`. (Release on pub will happen when the api is stable)
+Add the following snippet into your `pubspec.yaml`. (Release on pub will happen as soon as the api is stable)
 
 ```yaml
 api_provider:
@@ -163,13 +165,13 @@ class RefreshTokenInterceptor implements Interceptor {
 
    # ✅ Testing / Mocking an `ApiProvider`
 
-   The slim interface of `ApiProvider` makes mocking really easy. You can simply implement the `ApiProvider` interface, implement the `request` method and returns whatever you need in your use case. 
+   The slim interface of `ApiProvider` makes mocking really easy. You can simply implement the `ApiProvider` interface, implement the `request` method and return whatever you need in your use case. 
 
    
 
-   Besides that we provide a powerful mocking implementation out of the Box!
+   Besides that we provide a powerful mocking implementation out of the box.
 
-   Use `MockApiProvider` and configure it using the builder!
+   Use `MockApiProvider` and configure it using the builder:
 
    ```dart
 final apiProvider = MockApiProvider((builder) {
@@ -180,7 +182,7 @@ final apiProvider = MockApiProvider((builder) {
    });
    ```
    
-   If you want to test your `ApiProvider` with all of your custom `Interceptor`'s' we gotcha covered, because `MockApiProvider` supports  `Interceptor`'s   as well! 💪🏼 
+   If you want to test your `ApiProvider` with all of your custom `Interceptor`'s' we gotcha covered, because `MockApiProvider` supports  `Interceptor`'s   as well. 💪🏼 
    
    Just use `addInterceptor` on the `builder`.
 
