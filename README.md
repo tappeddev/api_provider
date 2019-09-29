@@ -1,6 +1,6 @@
 # ApiProvider
 
-### Clean and boilerplate free network requests with only a few lines of code.
+### Clean and boilerplate free network requests with few lines of code.
 
 ```dart
   final request = Request(url: Path("https://someapi/user"), httpMethod: HttpMethod.GET);
@@ -9,15 +9,15 @@
   print("fetched user :${response.body.name}");
 ```
 
-### Features:
+# 🔥 Features:
 
-- Typesafe interface on `Request` and `Response` objects.
+- Typesafe on `Request` and `Response` objects.
 - Powerful `Interceptors`
-- Testing / Mocking out of the Box!
+- Testing / Mocking out of the box!
 
 
 
-### Installing
+# 🛠 Installing
 
 Add the following snippet into your `pubspec.yaml`. (Release on pub will happen when the api is stable)
 
@@ -29,24 +29,9 @@ api_provider:
 
 
 
-
-
-### Serializing Requests and Deserializing Responses
+# 🗃 Serializing & Deserializing
 
 Instead of providing a serializer when calling  `request`, all the serialisers are stored in a `SerializeContainer` .The `ApiProvider` will get the stored  `Serializable`'s and `Deserializable` 's that are needed when you call `request`.
-
-⚠️  Important:  `T`  of `request` is used to get the needed serializer, thats why it should never be  `dynamic`.  ⚠️ 
-
-We highly recomment to disable `implicit-dynamic`  and `implicit-casts`.
-
-```yml
-analyzer:
-  strong-mode:
-    implicit-casts: false
-    implicit-dynamic: false
-```
-
-
 
 Specify your `SerializeContainer` in the constructor.
 
@@ -83,13 +68,13 @@ class UserDecoder implements Serializable<Map, User> {
 
 
 
-### Interceptors
+# ↔️ Interceptors
 
 Interceptors give you the ability to transform, change or listen to request or response calls.
 
 This could be something simply like adding an Authorization Header or something more complex like catching and handling a specific error from your api.
 
-1. #### Start by implementing `Interceptor`. 
+1. ## Start by implementing `Interceptor`. 
 
 ```dart
 class MyInterceptor implements Interceptor {
@@ -117,7 +102,7 @@ class AuthInterceptor implements Interceptor {
   @override
   RequestHandler<T> intercept<T>(RequestHandler<T> handler) => (request) async {
         final updatedRequest = request.copyWith(
-          headers: {"Authorization": await getToken()},
+          headers: { "Authorization": await getToken() },
         );
 
 	return handler(updatedRequest);
@@ -136,7 +121,7 @@ class RefreshTokenInterceptor implements Interceptor {
         if (!response.isSuccessful && response.errorBody == "Shit! Token expired!") {
           // refresh the token asynchronously
           final refreshedRequest = request.copyWith(
-            headers: {"Authorization": await refreshToken()},
+            headers: { "Authorization": await refreshToken() },
           );
           
           // resend the request with the refreshed token!
@@ -150,7 +135,7 @@ class RefreshTokenInterceptor implements Interceptor {
 
 
 
-2. #### Chain your interceptors
+2. ## Chain your interceptors
 
    You can chain multiple `Interceptor`'s using `Interceptor.fromList`. 
 
@@ -176,11 +161,7 @@ class RefreshTokenInterceptor implements Interceptor {
 
    
 
-   
-
-   
-
-   ### Testing / Mocking an `ApiProvider`
+   # ✅ Testing / Mocking an `ApiProvider`
 
    The slim interface of `ApiProvider` makes mocking really easy. You can simply implement the `ApiProvider` interface, implement the `request` method and returns whatever you need in your use case. 
 
@@ -191,24 +172,37 @@ class RefreshTokenInterceptor implements Interceptor {
    Use `MockApiProvider` and configure it using the builder!
 
    ```dart
-   final apiProvider = MockApiProvider((builder) {
+final apiProvider = MockApiProvider((builder) {
        builder.onGet<User>(
-         url: Path("https://someapi/user"),
+      url: Path("https://someapi/user"),
          handler: (request) async => Response.success(body: mockedUser()),
        );
    });
    ```
-
+   
    If you want to test your `ApiProvider` with all of your custom `Interceptor`'s' we gotcha covered, because `MockApiProvider` supports  `Interceptor`'s   as well! 💪🏼 
-
+   
    Just use `addInterceptor` on the `builder`.
 
    ```dart
-   	builder
+	builder
          ..onGet<User>(...)
-         ..addInterceptor(Interceptor.fromList([
+      ..addInterceptor(Interceptor.fromList([
            // your interceptors
          ]));
    ```
-
    
+
+# ⚠️ Notice 
+
+Generic types should always be specified because those are used to get the needed serializer.
+
+We highly recomment to disable `implicit-dynamic`  and `implicit-casts`.
+
+```yml
+analyzer:
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+```
+
