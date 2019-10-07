@@ -2,8 +2,6 @@
 
 Clean and boilerplate free network requests with few lines of code.
 
------
-
 ```dart
   final request = Request(url: Path("https://someapi/user"), httpMethod: HttpMethod.GET);
 
@@ -21,8 +19,6 @@ Build around [dart:http](https://pub.dev/packages/http).
 - Typesafe on `Request` and `Response` objects
 - Powerful `Interceptors`
 - Testing / Mocking out of the box
-
-
 
 
 
