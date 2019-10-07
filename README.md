@@ -13,7 +13,8 @@ Build around [dart:http](https://pub.dev/packages/http).
 
 
 
-# 🔥 Features:
+🔥 Features
+-----
 
 - Typesafe on `Request` and `Response` objects
 - Powerful `Interceptors`
@@ -23,7 +24,8 @@ Build around [dart:http](https://pub.dev/packages/http).
 
 
 
-# 🛠 Installing
+🛠 Installing
+-----
 
 Add the following snippet into your `pubspec.yaml`. (Release on pub will happen as soon as the api is stable)
 
@@ -37,9 +39,10 @@ api_provider:
 
 
 
-# 🗃 Serializing & Deserializing
+🗃 Serializing & Deserializing
+-----
 
-Instead of providing a serializer when calling  `request`, all the serialisers are stored in a `SerializeContainer` .The `ApiProvider` will get the stored  `Serializable`'s and `Deserializable` 's that are needed when you call `request`.
+Instead of providing a serializer when calling  `request`, all the serialisers are stored in a `SerializeContainer` .The `ApiProvider` will get the stored  `Serializable`'s and `Deserializable`'s that are needed when you call `request`.
 
 Specify your `SerializeContainer` in the constructor.
 
@@ -53,8 +56,7 @@ final apiProvider = HttpClientApiProvider(
       ..insertDecoder(UserDecoder()),
 );
 
-// responsible for decoding a user
-// similar to a "toMap" method.
+// responsible for encoding a user
 class UserEncoder implements Deserializable<Map, User> {
   @override
   Map to(User input) => <String, dynamic>{
@@ -63,8 +65,7 @@ class UserEncoder implements Deserializable<Map, User> {
       };
 }
 
-// responsible for encoding a user
-// similar to a "fromMap" method.
+// responsible for decoding a user
 class UserDecoder implements Serializable<Map, User> {
   @override
   User from(Map input) => User(
@@ -78,19 +79,20 @@ class UserDecoder implements Serializable<Map, User> {
 
 
 
-# ↔️ Interceptors
+↔️ Interceptors
+-----
 
 Interceptors give you the ability to transform, change or listen to request or response calls.
 
-This could be something simply like adding an Authorization Header or something more complex like catching and handling a specific error from your api.
+This could be something simple like adding an Authorization Header or something more complex like catching and handling a specific error from your api.
 
-1. ### Start by implementing `Interceptor`. 
+1. Start by implementing `Interceptor`. 
 
 ```dart
 class MyInterceptor implements Interceptor {
   @override
   RequestHandler<T> intercept<T>(RequestHandler<T> handler) => (request) async {
-        // adjust the request here using request.copyWith
+        // Manipulate the request here using request.copyWith
         // Maybe add auth headers?
         // add additional content to the body?
     
@@ -145,7 +147,7 @@ class RefreshTokenInterceptor implements Interceptor {
 
 
 
-2. ## Chain your interceptors
+2. Chain your interceptors
 
    You can chain multiple `Interceptor`'s using `Interceptor.fromList`. 
 
