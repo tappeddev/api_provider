@@ -145,8 +145,6 @@ class RefreshTokenInterceptor implements Interceptor {
 }
 ```
 
-
-
 2. Chain your interceptors
 
    You can chain multiple `Interceptor`'s using `Interceptor.fromList`. 
@@ -173,15 +171,14 @@ class RefreshTokenInterceptor implements Interceptor {
 
    
 
-   # ✅ Testing / Mocking an `ApiProvider`
+✅ Testing / Mocking an `ApiProvider`
+-----
 
-   The slim interface of `ApiProvider` makes mocking really easy. You can simply implement the `ApiProvider` interface, implement the `request` method and return whatever you need in your use case. 
+The slim interface of `ApiProvider` makes mocking really easy. You can simply implement the `ApiProvider` interface, implement the `request` method and return whatever you need in your use case. 
 
-   
+Besides that we provide a powerful mocking implementation out of the box.
 
-   Besides that we provide a powerful mocking implementation out of the box.
-
-   Use `MockApiProvider` and configure it using the builder:
+Use `MockApiProvider` and configure it using the builder:
 
    ```dart
 final apiProvider = MockApiProvider((builder) {
