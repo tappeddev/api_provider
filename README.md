@@ -169,7 +169,7 @@ Use `MockApiProvider` and configure it using the builder:
    ```dart
 final apiProvider = MockApiProvider((builder) {
        builder.onGet<User>(
-      url: Path("https://someapi/user"),
+         url: Path("https://someapi/user"),
          handler: (request) async => Response.success(body: mockedUser()),
        );
    });
@@ -182,7 +182,7 @@ final apiProvider = MockApiProvider((builder) {
    ```dart
 	builder
          ..onGet<User>(...)
-      ..addInterceptor(Interceptor.fromList([
+         ..addInterceptor(Interceptor.fromList([
            // your interceptors
          ]));
    ```
