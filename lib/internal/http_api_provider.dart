@@ -15,19 +15,19 @@ class HttpClientApiProvider with DecodeEncodeMixin implements ApiProvider {
   @override
   final SerializerContainer container;
 
-  final Interceptor interceptor;
+  final Interceptor _interceptor;
 
-  HttpClientApiProvider(
-    this.httpClient,
-    this.container,
-    this.interceptor,
-  );
+  HttpClientApiProvider({
+    @required this.httpClient,
+    @required this.container,
+    Interceptor interceptor,
+  }) : _interceptor = interceptor ?? Interceptor.noop();
 
   @override
   Future<Response<Out>> request<Out>({@required Request request}) async {
     final sendTime = DateTime.now();
 
-    final call = interceptor.intercept<Out>(
+    final call = _interceptor.intercept<Out>(
         (Request request) => _sendRequest<Out>(sendTime, request));
 
     return call(request);
