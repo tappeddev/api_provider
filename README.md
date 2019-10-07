@@ -1,6 +1,8 @@
 # ApiProvider
 
-### Clean and boilerplate free network requests with few lines of code.
+Clean and boilerplate free network requests with few lines of code.
+
+-----
 
 ```dart
   final request = Request(url: Path("https://someapi/user"), httpMethod: HttpMethod.GET);
@@ -34,9 +36,6 @@ api_provider:
     git:
       url: git://github.com/tikkrapp/api_provider.git
 ```
-
-
-
 
 
 🗃 Serializing & Deserializing
@@ -74,10 +73,6 @@ class UserDecoder implements Serializable<Map, User> {
   );
 }
 ```
-
-
-
-
 
 ↔️ Interceptors
 -----
@@ -147,27 +142,22 @@ class RefreshTokenInterceptor implements Interceptor {
 
 2. Chain your interceptors
 
-   You can chain multiple `Interceptor`'s using `Interceptor.fromList`. 
+You can chain multiple `Interceptor`'s using `Interceptor.fromList`. 
 
-   ```dart
-   final apiProvider = HttpClientApiProvider(
-       httpClient: yourClient,
-       container: yourContainer,
-       interceptor: Interceptor.fromList([
-         TokenInterceptor(),
-         MyInterceptor(),
-         LoggingInterceptor(),
-       ]),
-   )
-   ```
+```dart
+final apiProvider = HttpClientApiProvider(
+    httpClient: yourClient,
+    container: yourContainer,
+    interceptor: Interceptor.fromList([
+      TokenInterceptor(),
+      MyInterceptor(),
+      LoggingInterceptor(),
+    ]),
+)
+```
 
-   The given `Interceptors`'s wrap around the source call like an onion.  🤤
-
-   TODO insert graphic
-
-   
-
-   Testing a chain of `Interceptor`'s can be done by mocking.
+The given `Interceptors`'s wrap around the source call like an onion.  🤤
+Testing a chain of `Interceptor`'s can be done by mocking.
 
    
 
