@@ -22,8 +22,8 @@ abstract class ApiProvider {
     Interceptor interceptor,
   }) =>
       HttpClientApiProvider(
-        client,
-        serializerContainer,
-        interceptor,
+        httpClient: client,
+        container: serializerContainer,
+        interceptor: interceptor,
       );
 }
