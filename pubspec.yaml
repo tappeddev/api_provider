@@ -11,7 +11,7 @@ dependencies:
   codable:
     git:
       url: git://github.com/tikkrapp/codable.git
-  dio: ^3.0.3
+  dio: ^2.1.16
 
 dev_dependencies:
   pedantic: ^1.8.0+1
