@@ -6,7 +6,6 @@ import 'package:api_provider/src/interceptor/interceptor.dart';
 import 'package:api_provider/src/request.dart';
 import 'package:api_provider/src/response.dart';
 import 'package:codable/codable.dart';
-import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 
 abstract class ApiProvider {
@@ -17,12 +16,10 @@ abstract class ApiProvider {
   // -----
 
   factory ApiProvider({
-    @required http.Client client,
     @required SerializerContainer serializerContainer,
     Interceptor interceptor,
   }) =>
       HttpClientApiProvider(
-        httpClient: client,
         container: serializerContainer,
         interceptor: interceptor,
       );

@@ -40,7 +40,7 @@
         <entry key="codable">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/git/codable-3e044c97a411caf6ce8cc7aae23d9273b6253fd0/lib" />
+              <option value="$USER_HOME$/.pub-cache/git/codable-fc7cfcba323d733bebd57a67e95846ec710f5d49/lib" />
             </list>
           </value>
         </entry>
@@ -69,6 +69,13 @@
           <value>
             <list>
               <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/csslib-0.16.1/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="dio">
+          <value>
+            <list>
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/dio-3.0.3/lib" />
             </list>
           </value>
         </entry>
@@ -348,7 +355,7 @@
       </option>
     </properties>
     <CLASSES>
-      <root url="file://$USER_HOME$/.pub-cache/git/codable-3e044c97a411caf6ce8cc7aae23d9273b6253fd0/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/git/codable-fc7cfcba323d733bebd57a67e95846ec710f5d49/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/analyzer-0.38.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/args-1.5.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/async-2.3.0/lib" />
@@ -358,6 +365,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/convert-2.1.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/crypto-2.1.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/csslib-0.16.1/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/dio-3.0.3/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/front_end-0.1.24/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/glob-1.1.7/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/html-0.14.0+2/lib" />
