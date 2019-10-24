@@ -67,17 +67,17 @@ class HttpClientApiProvider with DecodeEncodeMixin implements ApiProvider {
 
     switch (method) {
       case HttpMethod.POST:
-        return await _httpClient.post(url,
+        return await http.Dio().post(url,
             options: http.Options(headers: headers), data: body);
       case HttpMethod.GET:
-        return await _httpClient.get(url, options: http.Options(headers: headers));
+        return await http.Dio().get(url, options: http.Options(headers: headers));
       case HttpMethod.DELETE:
-        return await _httpClient.delete(url, options: http.Options(headers: headers));
+        return await http.Dio().delete(url, options: http.Options(headers: headers));
       case HttpMethod.PATCH:
-        return await _httpClient.patch(url,
+        return await http.Dio().patch(url,
             data: body, options: http.Options(headers: headers));
       case HttpMethod.PUT:
-        return await _httpClient.put(url,
+        return await http.Dio().put(url,
             options: http.Options(headers: headers), data: body);
     }
     throw Exception("Unknown HTTP Method");
