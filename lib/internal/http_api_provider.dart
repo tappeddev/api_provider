@@ -62,22 +62,22 @@ class HttpClientApiProvider with DecodeEncodeMixin implements ApiProvider {
   /// calls the http clients base on the defined [method] with a
   /// json encoded [body]
   Future<http.Response<String>> _callHttpClient(String url, HttpMethod method,
-      {Map<String, String> headers, String body}) {
+      {Map<String, String> headers, String body}) async {
     //TODO Add utf8 as encoding
 
     switch (method) {
       case HttpMethod.POST:
-        return _httpClient.post(url,
+        return await _httpClient.post(url,
             options: http.Options(headers: headers), data: body);
       case HttpMethod.GET:
-        return _httpClient.get(url, options: http.Options(headers: headers));
+        return await _httpClient.get(url, options: http.Options(headers: headers));
       case HttpMethod.DELETE:
-        return _httpClient.delete(url, options: http.Options(headers: headers));
+        return await _httpClient.delete(url, options: http.Options(headers: headers));
       case HttpMethod.PATCH:
-        return _httpClient.patch(url,
+        return await _httpClient.patch(url,
             data: body, options: http.Options(headers: headers));
       case HttpMethod.PUT:
-        return _httpClient.put(url,
+        return await _httpClient.put(url,
             options: http.Options(headers: headers), data: body);
     }
     throw Exception("Unknown HTTP Method");
