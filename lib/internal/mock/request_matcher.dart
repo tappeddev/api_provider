@@ -1,6 +1,6 @@
+import 'package:api_provider/api_provider.dart';
 import 'package:api_provider/src/path/path.dart';
 import 'package:api_provider/src/request.dart';
-import 'package:api_provider/src/request_handler.dart';
 import 'package:api_provider/src/response.dart';
 
 abstract class RequestMatcher<T> {

@@ -2,7 +2,6 @@ import 'package:api_provider/api_provider.dart';
 import 'package:api_provider/internal/interceptor/serial_interceptor.dart';
 import 'package:api_provider/internal/mock/request_matcher.dart';
 import 'package:api_provider/src/path/path.dart';
-import 'package:api_provider/src/request_handler.dart';
 import 'package:meta/meta.dart';
 
 class MockBuilder {

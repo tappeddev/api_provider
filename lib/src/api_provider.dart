@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:api_provider/api_provider.dart';
 import 'package:api_provider/internal/http_api_provider.dart';
 import 'package:api_provider/src/interceptor/interceptor.dart';

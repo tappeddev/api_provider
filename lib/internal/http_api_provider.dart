@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:api_provider/src/api_provider.dart';
 import 'package:api_provider/src/interceptor/interceptor.dart';
 import 'package:api_provider/src/request.dart';
