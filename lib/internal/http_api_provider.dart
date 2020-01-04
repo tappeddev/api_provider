@@ -51,7 +51,7 @@ class HttpClientApiProvider with DecodeEncodeMixin implements ApiProvider {
     Out data;
     String error;
 
-    if (isSuccessful) {
+    if (isSuccessful && response.statusCode != 204) {
       data = decode<Out>(response.body);
     } else {
       error = response.body;
