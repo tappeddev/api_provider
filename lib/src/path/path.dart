@@ -51,8 +51,8 @@ class Path {
     if (name == null || name.isEmpty) {
       throw MalformedPathError("param name can not be null or empty!");
     }
-    if (value == null || value.isEmpty) {
-      throw MalformedPathError("param value can not be null or empty!");
+    if (value == null) {
+      throw MalformedPathError("param value can not be null!");
     }
   }
 
