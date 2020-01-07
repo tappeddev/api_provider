@@ -48,13 +48,12 @@ class HttpClientApiProvider with DecodeEncodeMixin implements ApiProvider {
   Response<Out> _mapToResponse<Out>(http.Response response) {
     final isSuccessful =
         response.statusCode >= 200 && response.statusCode < 300;
-    final hasContent = response.statusCode != 204;
-
+    
     Out data;
     String error;
 
     if (isSuccessful) {
-      if (hasContent) {
+      if (response.statusCode != 204) {
         data = decode<Out>(response.body);
       }
     } else {
