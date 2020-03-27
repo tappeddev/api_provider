@@ -1,8 +1,8 @@
 name: api_provider
 description:
 # version: 0.0.1
-# homepage: https://tikkr.app
-# author: julianbissekkou <julianbissekkou@hotmail.de>
+homepage: https://tapped.dev
+author: Tapped <contact@tapped.dev>
 
 environment:
   sdk: '>=2.4.0 <3.0.0'
@@ -10,7 +10,7 @@ environment:
 dependencies:
   codable:
     git:
-      url: git://github.com/tikkrapp/codable.git
+      url: git://github.com/tappeddev/codable.git
 
 dev_dependencies:
   extra_pedantic: 1.1.1
